@@ -1,5 +1,5 @@
 require 'yaml'
-require 'csv'
+require './books_list.rb'
 
 class Library
   def initialize()
@@ -7,6 +7,7 @@ class Library
     @users = File.readlines(@config['registered_users'], mode:"a+", chomp: true)
 
     @user = user_login
+    @books_list = Books_list.new(@config['books_list'])
   end
 
   def user_login
