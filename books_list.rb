@@ -9,6 +9,7 @@ class Books_list
     books_by_id = {}
 
     books = CSV.read file_path
+    books.shift
     books.each {
       |book|
       books_by_id[book[0]] = {
