@@ -4,7 +4,7 @@ require 'csv'
 class Library
   def initialize()
     @config = YAML.load(File.read('./settings.yml'))
-    @users = File.readlines(@config['registered_users'], mode:"a+")
+    @users = File.readlines(@config['registered_users'], mode:"a+", chomp: true)
 
     @user = user_login
   end
