@@ -8,6 +8,28 @@ class Library
 
     @user = user_login
     @books_list = Books_list.new(@config['books_list'])
+
+    user_loop
+  end
+
+  def user_loop
+    while true
+      puts "Choose your action:"
+      puts "[L]ist available books"
+      puts "[B]orrow a book (not implemented)"
+      puts "[R]eturn a book (not implemented)"
+      puts "[E]xit (not implemented)"
+
+      input = gets.chomp.downcase
+
+      case input
+      when "l"
+        @books_list.list_books
+      else
+        puts "Goodbye!"
+        break
+      end
+    end
   end
 
   def user_login
